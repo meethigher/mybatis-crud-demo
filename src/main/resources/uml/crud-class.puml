@@ -1,0 +1,49 @@
+@startuml
+'https://plantuml.com/class-diagram
+'[UML类图详解_关联关系_多对多 - abc_begin - 博客园](https://www.cnblogs.com/abc-begin/p/7749814.html)
+
+'学校
+class School {
+-String schoolId
+-String schoolName
+-Date createTime
+-Integer schoolState
+}
+
+'专业
+class Major {
+-String schoolId
+-String majorId
+-String majorName
+-Date createTime
+}
+
+'教师
+class Teacher {
+-String majorId
+-String teacherId
+-String teacherName
+-Date createTime
+}
+
+'学生
+class Student {
+-String majorId
+-String studentId
+-String studentName
+-Date createTime
+}
+
+'教师与学生对应关系
+class Relation {
+-String teacherId
+-String studentId
+}
+
+School "1" *-- "many" Major
+Major "1" *-- "many" Teacher
+Major "1" *-- "many" Student
+Teacher "1" *-- "many" Relation
+Student "1" *-- "many" Relation
+
+@enduml
