@@ -1,5 +1,8 @@
 package top.meethigher.entity;
 
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
+
 import java.util.Date;
 
 /**
@@ -8,8 +11,10 @@ import java.util.Date;
  * @author chenchuancheng
  * @since 2022/9/13 15:39
  */
+@TableName(value = "major", autoResultMap = true)
 public class Major {
 
+    @TableId
     private String schoolId;
 
     private String majorId;

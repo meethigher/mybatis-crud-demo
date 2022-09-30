@@ -1,8 +1,10 @@
 package top.meethigher.entity;
 
 import com.baomidou.mybatisplus.annotation.OrderBy;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import top.meethigher.handler.SchoolStateHandler;
 
 import java.util.Date;
 
@@ -22,9 +24,11 @@ public class School {
 
     private String schoolName;
 
+    //@TableField(typeHandler = SchoolStateHandler.class)
+    // 这样加只能保证mybatis-plus的自带方法处理类型，但是自定义实现就不行了，此处应该在yml配置
     private SchoolState schoolState;
 
-    //在执行MybatisPlus的方法selectList(),Page()等非手写查询时自动带上.
+    //在执行MybatisPlus的方法selectList(),Page()等<b>非手写查询</b>时自动带上.
     @OrderBy
     private Date createTime;
 
